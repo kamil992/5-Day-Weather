@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+<center>
+    <form method="post" action="/weather">
+        Enter the city name: <input type="text" th:name="city" placeholder="Name of the city"/>
+        <input type="submit" value="Check it">
+    </form>
+</center>
+
+</body>
+</html>
