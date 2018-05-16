@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body style="margin: 40px; background: lightcyan">
+<div style="border: 1px solid dodgerblue; padding: 10px; background: white;
+        box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.4);">
+    <b><i><h1 th:text="${cityName.getCity().toUpperCase()}"></h1></i></b>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Temperature [<sup>o</sup>C]</th>
+            <th scope="col">Pressure [hPa]</th>
+            <th scope="col">Humidity [%]</th>
+            <th scope="col">Clouds</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="content : ${cityWeather}">
+            <th th:text="${content.getDate()}"></th>
+            <td th:text="${content.getTemperature()}"></td>
+            <td th:text="${content.getPressure()}"></td>
+            <td th:text="${content.getHumidity()}"></td>
+            <td th:text="${content.getClouds()}"></td>
+            <td th:text="${content.getWeatherComment()}"></td>
+        </tr>
+        </tbody>
+    </table><br/>
+    <a href="/weather"> <strong><-previous</strong>  </a><br/>
+</div>
+
+</body>
+</html>

@@ -15,4 +15,6 @@ public class WeatherModel {
     private int humidity;
     private int clouds;
     private String weatherComment;
+
+
 }

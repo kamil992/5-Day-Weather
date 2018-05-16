@@ -67,7 +67,7 @@ public class WeatherService {
         String websiteResponse = Utils.readWebsiteContent("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=52a68fc2733794ec8e5f76eccf3b2480");
         String description = null;
         int temperature=0;
-        int pressure=0;
+        float pressure=0;
         int humidity = 0;
         int clouds=0;
         String date = null;
@@ -83,7 +83,7 @@ public class WeatherService {
             JSONObject arrayElement = weatherObject.getJSONObject(i);
             JSONObject main = arrayElement.getJSONObject("main");
             temperature = (int) main.getFloat("temp") - 273;
-            pressure = (int) main.getFloat("pressure");
+            pressure =  main.getFloat("pressure");
             humidity = main.getInt("humidity");
             clouds = arrayElement.getJSONObject("clouds").getInt("all");
             description = arrayElement.getJSONArray("weather").getJSONObject(0).getString("main");
@@ -95,7 +95,7 @@ public class WeatherService {
                 weatherModel.setDate(date);
                 weatherModel.setCity(city);
                 weatherModel.setTemperature(temperature);
-                weatherModel.setPressure(pressure);
+                weatherModel.setPressure((int) pressure/10);
                 weatherModel.setHumidity(humidity);
                 weatherModel.setClouds(clouds);
                 weatherModel.setWeatherComment(description);
