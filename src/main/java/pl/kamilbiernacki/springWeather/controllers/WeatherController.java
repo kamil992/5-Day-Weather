@@ -28,6 +28,9 @@ public class WeatherController {
         String todayWeather = String.valueOf(weatherService.getWeather(city));
 
 
-        return new Date()+ " || "+todayWeather;
+        //return new Date()+ " || "+ weatherService.getWeather(city);
+
+        return weatherService.getWeatherForFive(city).toString();
+
     }
 }

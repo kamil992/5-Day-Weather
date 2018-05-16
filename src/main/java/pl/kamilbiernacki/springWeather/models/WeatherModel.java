@@ -1,6 +1,6 @@
 package pl.kamilbiernacki.springWeather.models;
 
-import lombok.Builder;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 public class WeatherModel {
 
     private String city;
+    private String date;
     private int temperature;
     private int pressure;
     private int humidity;
