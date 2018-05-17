@@ -92,7 +92,7 @@ public class WeatherService {
 
             if(date.contains("12:00:00")) {
                 WeatherModel weatherModel = new WeatherModel();
-                weatherModel.setDate(date);
+                weatherModel.setDate(date.substring(0,10));
                 weatherModel.setCity(city);
                 weatherModel.setTemperature(temperature);
                 weatherModel.setPressure((int) pressure/10);

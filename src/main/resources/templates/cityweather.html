@@ -11,8 +11,8 @@
     <b><i><h1 th:text="${cityName.getCity().toUpperCase()}"></h1></i></b>
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th scope="col">Date</th>
+        <tr style="text-align: center">
+            <th scope="col">Date [yy-mm-dd]</th>
             <th scope="col">Temperature [<sup>o</sup>C]</th>
             <th scope="col">Pressure [hPa]</th>
             <th scope="col">Humidity [%]</th>
@@ -22,7 +22,7 @@
         </thead>
 
         <tbody>
-        <tr th:each="content : ${cityWeather}">
+        <tr style="text-align: center" th:each="content : ${cityWeather}">
             <th th:text="${content.getDate()}"></th>
             <td th:text="${content.getTemperature()}"></td>
             <td th:text="${content.getPressure()}"></td>
