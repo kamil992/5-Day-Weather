@@ -91,16 +91,23 @@ public class WeatherService {
             date = arrayElement.getString("dt_txt");
 
             if(date.contains("12:00:00")) {
-                WeatherModel weatherModel = new WeatherModel();
-                weatherModel.setDate(date.substring(0,10));
-                weatherModel.setCity(city);
-                weatherModel.setTemperature(temperature);
-                weatherModel.setPressure((int) pressure/10);
-                weatherModel.setHumidity(humidity);
-                weatherModel.setClouds(clouds);
-                weatherModel.setWeatherComment(description);
+//                WeatherModel weatherModel = new WeatherModel();
+//                weatherModel.setDate(date.substring(0,10));
+//                weatherModel.setCity(city);
+//                weatherModel.setTemperature(temperature);
+//                weatherModel.setPressure((int) pressure/10);
+//                weatherModel.setHumidity(humidity);
+//                weatherModel.setClouds(clouds);
+//                weatherModel.setWeatherComment(description);
 
-                weatherList.add(weatherModel);
+                weatherList.add(new WeatherModel.Builder(city)
+                .setDate(date.substring(0,10))
+                .setTemperature(temperature)
+                .setPressure((int) pressure/10)
+                .setHumidity(humidity)
+                .setClouds(clouds)
+                .setWeatherComment(description)
+                .build());
             }
         }
         return weatherList;
