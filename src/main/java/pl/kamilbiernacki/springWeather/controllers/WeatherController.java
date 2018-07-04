@@ -24,6 +24,11 @@ public class WeatherController {
     public String postWeather(@RequestParam("city") String city,
                               Model model){
 
+
+        if(city.length() == 0){
+            return "weather";
+        }
+
         WeatherService weatherService = WeatherService.getInstance();
 
 

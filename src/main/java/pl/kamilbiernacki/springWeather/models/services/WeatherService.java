@@ -86,7 +86,7 @@ public class WeatherService {
             pressure =  main.getFloat("pressure");
             humidity = main.getInt("humidity");
             clouds = arrayElement.getJSONObject("clouds").getInt("all");
-            description = arrayElement.getJSONArray("weather").getJSONObject(0).getString("main");
+            description = arrayElement.getJSONArray("weather").getJSONObject(0).getString("description");
 
             date = arrayElement.getString("dt_txt");
 
