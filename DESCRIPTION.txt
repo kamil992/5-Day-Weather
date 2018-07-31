@@ -1,0 +1,4 @@
+In this application You can check five day weather in wherever place in the world.
+
+In this application there have been used following technologies: Java, Spring framework, JSON, HTML, CSS, Weather API
+Design patterns: builder, singleton.
