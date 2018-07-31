@@ -2,13 +2,14 @@ package pl.kamilbiernacki.springWeather.models.services;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 import pl.kamilbiernacki.springWeather.models.Utils;
 import pl.kamilbiernacki.springWeather.models.WeatherModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class WeatherService {
 
     private static WeatherService ourInstance = new WeatherService();
