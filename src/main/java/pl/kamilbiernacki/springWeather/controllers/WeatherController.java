@@ -31,12 +31,11 @@ public class WeatherController {
 
         try {
             model.addAttribute("cityName", weatherService.getWeather(city));
+            model.addAttribute("cityWeather", weatherService.getWeatherForFive(city));
         }catch (Exception e){
             model.addAttribute("wrongCity", "You entered invalid data!");
             return "weather";
         }
-
-            model.addAttribute("cityWeather", weatherService.getWeatherForFive(city));
 
         return "cityweather";
 
