@@ -91,7 +91,9 @@ public class WeatherService {
 
             date = arrayElement.getString("dt_txt");
 
-            if(date.contains("12:00:00")) {
+            if(date.contains("06:00:00") || date.contains("09:00:00") || date.contains("12:00:00")
+                    || date.contains("15:00:00") || date.contains("18:00:00") || date.contains("21:00:00")
+                    || date.contains("00:00:00")) {
 //                WeatherModel weatherModel = new WeatherModel();
 //                weatherModel.setDate(date.substring(0,10));
 //                weatherModel.setCity(city);
@@ -102,7 +104,7 @@ public class WeatherService {
 //                weatherModel.setWeatherComment(description);
 
                 weatherList.add(new WeatherModel.Builder(city)
-                .setDate(date.substring(0,10))
+                .setDate(date.substring(0,10) + " (" + date.substring(10, date.length() - 3) + ")")
                 .setTemperature(temperature)
                 .setPressure((int) pressure/10)
                 .setHumidity(humidity)
