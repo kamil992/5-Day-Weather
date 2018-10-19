@@ -37,7 +37,7 @@ public class WeatherController {
             return "weather";
         }
 
-        return "cityweather";
+        return "weather";
 
     }
 }

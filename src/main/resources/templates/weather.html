@@ -4,26 +4,58 @@
     <meta charset="UTF-8">
     <title>Weather</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/script.js}"></script>
+
 </head>
-<body style="margin-top: 30px">
+<body style="margin: 40px; background: url(https://images.wallpaperscraft.com/image/clouds_sky_blue_99895_2048x1152.jpg);">
 
 <center>
-    <h1 id="h1">Check the weather in Your city for five days</h1>
-    <hr/>
+
     <div th:if="${wrongCity != null}" class="alert alert-danger">
         <h1 th:text="${wrongCity}"></h1>
     </div>
-    <div style="width: 450px; height: 60px; border: 1px solid dodgerblue; padding: 10px; background: lightcyan;
+    <div style="width: 500px; height: 120px; border: 1px solid dodgerblue; padding: 10px; background: white;
         box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.4);">
     <form method="post" action="/weather">
-        <strong style="margin-right: 5px">Enter the city :</strong> <input type="text" th:name="city" />
+        <h1 id="h1" style="color: black solid;"><b>WEATHER FORECAST</b></h1>
+        <strong style="margin-right: 5px;">ENTER THE CITY :</strong> <input type="text" th:name="city" />
         <button style="margin-left: 5px" type="submit" class="btn btn-primary">Check it</button>
     </form>
     </div>
     <br/>
     <br/>
 </center>
+<div th:if="${cityName != null}">
 
+    <div style="border: 1px solid dodgerblue; padding: 10px; background: white;
+        box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.4);">
+        <h1 style="font-weight: 900" th:text="${cityName.getCity().toUpperCase()}"></h1>
+        <table class="table table-hover">
+            <thead>
+            <tr style="text-align: center; color: white" class="bg-primary">
+                <th scope="col">Date [yy-mm-dd (hour)]</th>
+                <th scope="col">Temperature [<sup>o</sup>C]</th>
+                <th scope="col">Pressure [hPa]</th>
+                <th scope="col">Humidity [%]</th>
+                <th scope="col">Clouds</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr style="text-align: center" th:each="content : ${cityWeather}">
+                <th th:text="${content.getDate()}"></th>
+                <td th:text="${content.getTemperature()}"></td>
+                <td th:text="${content.getPressure()}"></td>
+                <td th:text="${content.getHumidity()}"></td>
+                <td th:text="${content.getClouds()}"></td>
+                <td th:text="${content.getWeatherComment()}"></td>
+            </tr>
+            </tbody>
+        </table><br/>
+        <!--<a href="/weather"> <strong><-previous</strong>  </a><br/>-->
+    </div>
+</div>
 
 </body>
 </html>
