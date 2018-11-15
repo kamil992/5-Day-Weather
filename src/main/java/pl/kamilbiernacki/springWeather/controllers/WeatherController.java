@@ -25,8 +25,6 @@ public class WeatherController {
     @PostMapping("/weather")
     public String postWeather(@RequestParam("city") String city,
                               Model model){
-
-
         WeatherService weatherService = WeatherService.getInstance();
 
         try {
